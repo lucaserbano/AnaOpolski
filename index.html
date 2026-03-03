@@ -101,6 +101,16 @@
     .delay-300 { animation-delay: 0.35s; }
     .delay-400 { animation-delay: 0.5s; }
 
+    /* ── Hero "floating card" effect ── */
+    #inicio {
+      box-shadow: 0 12px 60px rgba(59,57,57,0.13);
+    }
+
+    /* ── FAQ "floating card" effect ── */
+    #faq {
+      box-shadow: 0 -8px 48px rgba(59,57,57,0.12);
+    }
+
     /* ── Badge Clínica Tassi ── */
     .badge-clinica { transition: opacity 0.2s ease, transform 0.2s ease; }
     .badge-clinica:hover { opacity: 0.88; transform: translateY(-2px); }
@@ -223,7 +233,7 @@
 <!-- ════════════════════════════════════════════════════
      HERO  —  #inicio
 ════════════════════════════════════════════════════ -->
-<section id="inicio" class="relative min-h-screen flex items-center" style="padding-top:90px;" aria-label="Apresentação">
+<section id="inicio" class="relative z-10 min-h-screen flex items-center bg-white rounded-b-[3rem] lg:rounded-b-[4.5rem]" style="padding-top:90px;" aria-label="Apresentação">
 
   <div class="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
     <!-- Monograma decorativo (fundo) -->
@@ -328,7 +338,7 @@
 <!-- ════════════════════════════════════════════════════
      CARDS DE CHAMADA
 ════════════════════════════════════════════════════ -->
-<section class="bg-pewter py-32 lg:py-48 relative overflow-hidden" aria-label="Explore o site">
+<section class="bg-pewter pt-44 pb-32 lg:pt-64 lg:pb-48 -mt-12 lg:-mt-16 relative overflow-hidden" aria-label="Explore o site">
 
   <!-- Monogram half-drop pattern background -->
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
@@ -434,7 +444,7 @@
 <!-- ════════════════════════════════════════════════════
      FAQ
 ════════════════════════════════════════════════════ -->
-<section class="bg-white py-24 lg:py-32 relative overflow-hidden" aria-label="Perguntas frequentes">
+<section id="faq" class="bg-white pt-36 pb-24 lg:pt-48 lg:pb-32 -mt-12 lg:-mt-16 relative z-10 overflow-hidden rounded-t-[3rem] lg:rounded-t-[4.5rem]" aria-label="Perguntas frequentes">
   <!-- Monograma decorativo (fundo) -->
   <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
     <img src="Assets/Monograma/monograma compacto.png" alt=""
