@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dra. Ana Opolski – Médica Dermatologista em Curitiba-PR. Especialista SBD e SBCD. Agende sua consulta.">
+  <title>Dra. Ana Opolski | Dermatologista em Curitiba</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            linen:          '#F0E4D8',
+            'pale-copper':  '#D88366',
+            'deep-chestnut':'#B04F44',
+            pewter:         '#86A5A8',
+            jet:            '#3B3939',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* ── Navbar ── */
+    #navbar { transition: background-color 0.35s ease, box-shadow 0.35s ease; }
+    #navbar.scrolled {
+      background-color: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 1px 24px rgba(134,165,168,0.13);
+    }
+
+    /* ── Nav links ── */
+    .nav-link {
+      position: relative;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3B3939;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background-color: #86A5A8;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: #86A5A8; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      background-color: #86A5A8;
+      color: #ffffff;
+      transition: background-color 0.25s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover  { background-color: #6e8e91; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-outline {
+      border: 1px solid rgba(59,57,57,0.2);
+      color: #3B3939;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .btn-outline:hover  { border-color: #86A5A8; color: #86A5A8; transform: translateY(-1px); }
+    .btn-outline:active { transform: translateY(0); }
+
+    /* ── Hero photo overlay ── */
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(134,165,168,0.06) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    /* ── Entry animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up   { animation: fadeUp 0.75s ease both; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.35s; }
+    .delay-400 { animation-delay: 0.5s; }
+
+    /* ── Badge Clínica Tassi ── */
+    .badge-clinica { transition: opacity 0.2s ease, transform 0.2s ease; }
+    .badge-clinica:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ── Cards de seção ── */
+    .section-card {
+      position: relative; overflow: hidden; border-radius: 1.25rem;
+      box-shadow: 0 0 0 4px #F0E4D8, 0 0 0 6px rgba(216,131,102,0.28);
+    }
+    .section-card img { transition: transform 0.65s ease; }
+    .section-card:hover img { transform: scale(1.05); }
+    .section-card-overlay {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(to top, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.06) 100%);
+      transition: background 0.35s ease;
+    }
+    .section-card:hover .section-card-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.12) 100%);
+    }
+    .card-arrow {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 2.25rem; height: 2.25rem;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 50%;
+      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+    .section-card:hover .card-arrow {
+      background-color: #86A5A8;
+      border-color: #86A5A8;
+      transform: translateX(4px);
+    }
+
+    /* ── FAQ accordion ── */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s ease;
+    }
+    .faq-answer.open { max-height: 400px; }
+    .faq-trigger { cursor: pointer; }
+    .faq-icon {
+      transition: transform 0.3s ease;
+      display: inline-block;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* ── WhatsApp float ── */
+    #wa-float { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    #wa-float:hover { transform: scale(1.09); box-shadow: 0 8px 28px rgba(37,211,102,0.38); }
+
+    /* ── Footer links ── */
+    .footer-link { color: rgba(255,255,255,0.55); transition: color 0.2s ease; }
+    .footer-link:hover { color: #86A5A8; }
+
+    /* ── Scroll indicator ── */
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 0.7; transform: scaleY(1.15); }
+    }
+    .scroll-line { animation: scrollPulse 2s ease-in-out infinite; }
+  </style>
+</head>
+
+<body class="font-sans bg-white text-jet">
+
+<!-- ════════════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90" role="navigation" aria-label="Navegação principal">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+    <div class="flex items-center justify-between" style="height:90px;">
+
+      <a href="index.html" class="flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded" aria-label="Dra. Ana Opolski – página inicial">
+        <img src="Assets/Logo principal/Logo 1 principal.png" alt="Ana Opolski Dermatologista" class="h-12 w-auto">
+      </a>
+
+      <div class="hidden md:flex items-center gap-9">
+        <a href="index.html"         class="nav-link">Início</a>
+        <a href="sobre.html"         class="nav-link">Sobre</a>
+        <a href="procedimentos.html" class="nav-link">Procedimentos</a>
+        <a href="contato.html"       class="nav-link">Contato</a>
+      </div>
+
+      <div class="hidden md:block">
+        <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+           target="_blank" rel="noopener noreferrer"
+           class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pewter">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Entre em contato
+        </a>
+      </div>
+
+      <button id="menu-toggle" class="md:hidden p-2 rounded-md text-jet focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter"
+              aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-linen" role="menu">
+    <div class="max-w-7xl mx-auto px-5 py-6 flex flex-col gap-5">
+      <a href="index.html"         class="nav-link py-1" role="menuitem" onclick="closeMobileMenu()">Início</a>
+      <a href="sobre.html"         class="nav-link py-1" role="menuitem" onclick="closeMobileMenu()">Sobre</a>
+      <a href="procedimentos.html" class="nav-link py-1" role="menuitem" onclick="closeMobileMenu()">Procedimentos</a>
+      <a href="contato.html"       class="nav-link py-1" role="menuitem" onclick="closeMobileMenu()">Contato</a>
+      <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+         target="_blank" rel="noopener noreferrer" role="menuitem"
+         class="btn-primary inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-medium tracking-wide mt-1"
+         onclick="closeMobileMenu()">
+        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Entre em contato
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════
+     HERO  —  #inicio
+════════════════════════════════════════════════════ -->
+<section id="inicio" class="relative min-h-screen flex items-center" style="padding-top:90px;" aria-label="Apresentação">
+
+  <div class="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+    <!-- Monograma decorativo (fundo) -->
+    <img src="Assets/Monograma/monograma compacto.png" alt=""
+         class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[82vh] w-auto max-w-none opacity-[0.05]" loading="lazy">
+    <!-- Monograma vazado (detalhe lateral) -->
+    <img src="Assets/Monograma vazado/vazado pewter blue.png" alt=""
+         class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-[680px] max-w-none opacity-[0.045]" loading="lazy">
+  </div>
+
+  <div class="relative w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-[42%_58%] gap-10 lg:gap-10 items-center py-16 lg:py-24">
+
+      <!-- Coluna esquerda: texto -->
+      <div class="flex flex-col justify-center order-2 lg:order-1">
+
+        <div class="flex items-center gap-3 mb-8 fade-up">
+          <div class="h-px w-10 bg-pewter flex-shrink-0"></div>
+          <span class="text-pewter text-[0.85rem] font-medium tracking-[0.18em] uppercase">Dermatologista · Curitiba, PR</span>
+        </div>
+
+        <h1 class="font-display font-light leading-[1.08] tracking-tight text-jet mb-7 fade-up delay-100"
+            style="font-size: clamp(3.2rem, 6vw, 5.2rem);">
+          Realce sua<br>beleza com<br>
+          <em class="not-italic" style="color:#86A5A8;">naturalidade</em>
+        </h1>
+
+        <p class="text-[1.05rem] text-jet/65 leading-[1.75] max-w-[440px] mb-10 font-light fade-up delay-200">
+          Cuidados clínicos e estéticos com abordagem baseada em evidências
+          e com respeito a sua singularidade.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 mb-12 fade-up delay-300">
+          <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+             target="_blank" rel="noopener noreferrer"
+             class="btn-primary inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-[0.9rem] font-medium tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter focus-visible:ring-offset-2">
+            <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar consulta
+          </a>
+          <a href="procedimentos.html"
+             class="btn-outline inline-flex items-center justify-center px-8 py-4 rounded-full text-[0.9rem] font-medium tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter focus-visible:ring-offset-2">
+            Conheça meu trabalho
+          </a>
+        </div>
+
+        <div class="pt-6 border-t border-jet/10 fade-up delay-400">
+          <p class="text-sm font-medium tracking-[0.08em] uppercase text-jet/55 leading-none mb-1.5">Dra. Ana Cristina Opolski</p>
+          <p class="text-[0.82rem] text-jet/40 leading-none">CRM-PR 34967 · RQE 26861</p>
+        </div>
+
+      </div>
+
+      <!-- Coluna direita: foto -->
+      <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end fade-up delay-100">
+        <div class="relative w-full max-w-[520px] lg:max-w-none">
+          <div class="absolute -inset-5 bg-linen rounded-[2rem] -z-10" aria-hidden="true"></div>
+
+          <div class="hero-photo-wrap relative rounded-[1.5rem] overflow-hidden" style="aspect-ratio: 3/4;">
+            <img src="Assets/Fotos - AO/Consultório/foto para hero.jpeg"
+                 alt="Dra. Ana Opolski, Médica Dermatologista em Curitiba"
+                 class="w-full h-full object-cover object-top" loading="eager" fetchpriority="high">
+          </div>
+
+          <!-- Badge Especialista -->
+          <div class="absolute -bottom-5 -left-5 bg-white rounded-2xl px-5 py-4 shadow-[0_8px_32px_rgba(134,165,168,0.18)]">
+            <div class="flex items-center gap-4">
+              <p class="text-[0.85rem] text-jet/40 tracking-[0.12em] uppercase leading-snug flex-shrink-0">Especialista<br>pela</p>
+              <div class="w-px h-10 bg-jet/10 flex-shrink-0"></div>
+              <a href="https://www.sbd.org.br" target="_blank" rel="noopener noreferrer" aria-label="Sociedade Brasileira de Dermatologia">
+                <img src="Assets/Fotos - AO/Logo Sociedades/cropped-logo-sbd-oticia-site-.png.webp"
+                     alt="SBD" class="h-14 w-auto object-contain" loading="lazy">
+              </a>
+              <a href="https://www.sbcd.org.br" target="_blank" rel="noopener noreferrer" aria-label="Sociedade Brasileira de Cirurgia Dermatológica">
+                <img src="Assets/Fotos - AO/Logo Sociedades/logo-completo.svg"
+                     alt="SBCD" class="h-14 w-auto object-contain" loading="lazy">
+              </a>
+            </div>
+          </div>
+
+          <!-- Badge Clínica -->
+          <a href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica+Tassi+Av.+Visconde+de+Guarapuava+4628+Curitiba+PR"
+             target="_blank" rel="noopener noreferrer"
+             class="badge-clinica absolute -top-4 -right-4 bg-pewter rounded-xl px-4 py-3 shadow-[0_6px_24px_rgba(134,165,168,0.35)] hidden sm:block focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+             aria-label="Ver no Google Maps: Clínica Tassi">
+            <p class="text-[1.05rem] font-medium text-white tracking-wide leading-none mb-1">Clínica Tassi</p>
+            <p class="text-[1.05rem] text-white/75 leading-none">DOC Batel · Curitiba</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="absolute bottom-7 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2" aria-hidden="true">
+    <span class="text-[0.65rem] tracking-[0.18em] uppercase font-light text-jet/30">Role</span>
+    <div class="w-px h-9 bg-jet/20 scroll-line"></div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     CARDS DE CHAMADA
+════════════════════════════════════════════════════ -->
+<section class="bg-pewter py-32 lg:py-48 relative overflow-hidden" aria-label="Explore o site">
+
+  <!-- Monogram half-drop pattern background -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+       style="
+         background-image: url('Assets/Monograma/logo jetblack.png'), url('Assets/Monograma/logo jetblack.png');
+         background-size: 200px 112px, 200px 112px;
+         background-position: 0px 0px, 100px 56px;
+         background-repeat: repeat, repeat;
+         opacity: 0.05;
+       "></div>
+
+  <!-- Gradiente escuro de cima para baixo para melhorar legibilidade -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+       style="background: linear-gradient(to bottom, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.28) 50%, transparent 80%);"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative">
+
+    <!-- Cabeçalho da seção -->
+    <div class="mb-14 lg:mb-16 text-center">
+      <h2 class="font-display font-light text-white leading-tight mb-6 whitespace-nowrap"
+          style="font-size: clamp(3.2rem, 6vw, 5.2rem);">
+        <span style="color:rgba(255,255,255,0.35);">&ldquo;</span><em>Equilíbrio para a sua pele</em><span style="color:rgba(255,255,255,0.35);">&rdquo;</span>
+      </h2>
+      <div class="max-w-3xl mx-auto">
+        <p class="text-white/65 text-[1.05rem] leading-[1.8] font-light">
+          Graduada pela Faculdade Evangélica Mackenzie do Paraná, com Residência em Dermatologia pela FAMERP (SP) e experiência clínica internacional na Austrália. Especialista em Cirurgia Micrográfica de Mohs, membro da Sociedade Brasileira de Dermatologia (SBD) e da Sociedade Brasileira de Cirurgia Dermatológica (SBCD).
+        </p>
+        <div class="flex items-center gap-4 mt-12">
+          <div class="h-px flex-1 bg-white/20"></div>
+          <span class="text-[0.75rem] font-medium tracking-[0.25em] uppercase text-white/55">Explore</span>
+          <div class="h-px flex-1 bg-white/20"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+
+      <!-- Card: Sobre -->
+      <a href="sobre.html" class="section-card block group" aria-label="Ir para a página Sobre">
+        <div style="aspect-ratio: 2/3;">
+          <img src="Assets/Fotos - AO/Demais partes do site/WhatsApp Image 2026-03-03 at 12.45.03 (2).jpeg"
+               alt="Dra. Ana Opolski" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="section-card-overlay"></div>
+        <div class="absolute inset-x-0 bottom-0 p-7 z-10">
+          <p class="text-sm font-medium tracking-[0.2em] uppercase text-white/55 mb-2">Conheça</p>
+          <h2 class="font-display font-light text-white leading-tight mb-4"
+              style="font-size: clamp(1.8rem, 2.5vw, 2.4rem);">Sobre a Dra. Ana</h2>
+          <p class="text-base text-white/65 leading-relaxed mb-6 max-w-[260px]">
+            Trajetória, formação e a abordagem que orienta cada consulta.
+          </p>
+          <span class="card-arrow" aria-hidden="true">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card: Procedimentos -->
+      <a href="procedimentos.html" class="section-card block group" aria-label="Ir para a página Procedimentos">
+        <div style="aspect-ratio: 2/3;">
+          <img src="Assets/Fotos - AO/Demais partes do site/WhatsApp Image 2026-03-03 at 12.45.03 (1).jpeg"
+               alt="Procedimento dermatológico" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="section-card-overlay"></div>
+        <div class="absolute inset-x-0 bottom-0 p-7 z-10">
+          <p class="text-sm font-medium tracking-[0.2em] uppercase text-white/55 mb-2">Tratamentos</p>
+          <h2 class="font-display font-light text-white leading-tight mb-4"
+              style="font-size: clamp(1.8rem, 2.5vw, 2.4rem);">Procedimentos</h2>
+          <p class="text-base text-white/65 leading-relaxed mb-6 max-w-[260px]">
+            Cada estratégia é construída em consulta, com cuidado e respeito à sua individualidade.
+          </p>
+          <span class="card-arrow" aria-hidden="true">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card: Contato -->
+      <a href="contato.html" class="section-card block group" aria-label="Ir para a página Contato">
+        <div style="aspect-ratio: 2/3;">
+          <img src="Assets/Fotos - AO/Consultório/AOFOTOSjun24-28.jpg"
+               alt="Entre em contato" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="section-card-overlay"></div>
+        <div class="absolute inset-x-0 bottom-0 p-7 z-10">
+          <p class="text-sm font-medium tracking-[0.2em] uppercase text-white/55 mb-2">Agende</p>
+          <h2 class="font-display font-light text-white leading-tight mb-4"
+              style="font-size: clamp(1.8rem, 2.5vw, 2.4rem);">Entre em Contato</h2>
+          <p class="text-base text-white/65 leading-relaxed mb-6 max-w-[260px]">
+            Agende sua consulta pelo WhatsApp ou saiba como nos encontrar.
+          </p>
+          <span class="card-arrow" aria-hidden="true">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     FAQ
+════════════════════════════════════════════════════ -->
+<section class="bg-white py-24 lg:py-32 relative overflow-hidden" aria-label="Perguntas frequentes">
+  <!-- Monograma decorativo (fundo) -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
+    <img src="Assets/Monograma/monograma compacto.png" alt=""
+         class="h-[90%] w-auto max-w-none opacity-[0.05]" loading="lazy">
+  </div>
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 lg:px-10 relative">
+
+    <!-- Cabeçalho -->
+    <div class="text-center mb-16">
+      <p class="text-[0.78rem] font-medium tracking-[0.22em] uppercase text-pewter mb-4">FAQ</p>
+      <h2 class="font-display font-light text-jet leading-tight"
+          style="font-size: clamp(2.2rem, 4vw, 3.2rem);">Perguntas frequentes</h2>
+    </div>
+
+    <!-- Itens -->
+    <div class="divide-y divide-jet/10" id="faq-list">
+
+      <!-- 1 -->
+      <div class="faq-item py-6">
+        <button class="faq-trigger w-full flex items-start justify-between gap-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded group" aria-expanded="false">
+          <span class="text-[1rem] font-medium text-jet leading-snug group-hover:text-pewter transition-colors duration-200">
+            Como funciona a primeira consulta?
+          </span>
+          <span class="faq-icon text-pewter text-2xl font-light flex-shrink-0 mt-0.5">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-[0.92rem] text-jet/60 leading-relaxed pt-4 pb-2">
+            A primeira consulta dura em média uma hora. Começamos com uma conversa sobre seus objetivos, hábitos e rotina de cuidados. Em seguida, realizamos exame físico completo da pele e do couro cabeludo, com uso de dermatoscopia, tricoscopia e documentação fotográfica. Em alguns casos, o tratamento pode ser iniciado já nessa primeira visita — basta informar no momento do agendamento.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="faq-item py-6">
+        <button class="faq-trigger w-full flex items-start justify-between gap-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded group" aria-expanded="false">
+          <span class="text-[1rem] font-medium text-jet leading-snug group-hover:text-pewter transition-colors duration-200">
+            A Dra. Ana atende por telemedicina?
+          </span>
+          <span class="faq-icon text-pewter text-2xl font-light flex-shrink-0 mt-0.5">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-[0.92rem] text-jet/60 leading-relaxed pt-4 pb-2">
+            Sim, atende! As teleconsultas podem ser feitas em retornos ou até em primeiras consultas — avaliaremos essa possibilidade durante seu agendamento.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="faq-item py-6">
+        <button class="faq-trigger w-full flex items-start justify-between gap-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded group" aria-expanded="false">
+          <span class="text-[1rem] font-medium text-jet leading-snug group-hover:text-pewter transition-colors duration-200">
+            O que acontece após a consulta?
+          </span>
+          <span class="faq-icon text-pewter text-2xl font-light flex-shrink-0 mt-0.5">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-[0.92rem] text-jet/60 leading-relaxed pt-4 pb-2">
+            Toda a documentação é enviada por e-mail ou WhatsApp: receita, orientações, solicitações de exames e encaminhamentos, se necessário. Durante o tratamento, você também terá suporte contínuo pelo WhatsApp para dúvidas e acompanhamento.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="faq-item py-6">
+        <button class="faq-trigger w-full flex items-start justify-between gap-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded group" aria-expanded="false">
+          <span class="text-[1rem] font-medium text-jet leading-snug group-hover:text-pewter transition-colors duration-200">
+            A Dra. Ana realiza procedimentos cirúrgicos?
+          </span>
+          <span class="faq-icon text-pewter text-2xl font-light flex-shrink-0 mt-0.5">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-[0.92rem] text-jet/60 leading-relaxed pt-4 pb-2">
+            Sim. A Dra. Ana possui especialização em Cirurgia Micrográfica de Mohs pela Santa Casa de Curitiba e realiza procedimentos como remoção de nevos e lesões benignas. A indicação cirúrgica é sempre avaliada individualmente em consulta.
+          </p>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="faq-item py-6">
+        <button class="faq-trigger w-full flex items-start justify-between gap-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded group" aria-expanded="false">
+          <span class="text-[1rem] font-medium text-jet leading-snug group-hover:text-pewter transition-colors duration-200">
+            Como faço para agendar uma consulta?
+          </span>
+          <span class="faq-icon text-pewter text-2xl font-light flex-shrink-0 mt-0.5">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="text-[0.92rem] text-jet/60 leading-relaxed pt-4 pb-2">
+            O agendamento é feito diretamente pelo WhatsApp. Basta clicar no botão abaixo — a mensagem já vem preenchida para facilitar. Nossa equipe retornará com os horários disponíveis.
+          </p>
+          <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+             target="_blank" rel="noopener noreferrer"
+             class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium tracking-wide mt-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter focus-visible:ring-offset-2">
+            <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer class="bg-jet text-white" role="contentinfo">
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-16 pb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Col 1 -->
+      <div>
+        <img src="Assets/Logo principal/Logo 1 principal.png" alt="Ana Opolski Dermatologista"
+             class="w-full max-w-[220px] h-auto block mb-7 brightness-0 invert" loading="lazy">
+        <p class="text-sm text-white leading-[1.8] font-light mb-7 max-w-xs">
+          Realce sua beleza com naturalidade.
+        </p>
+        <div class="space-y-2">
+          <p class="text-sm text-white/70 font-medium">Dra. Ana Cristina Opolski</p>
+          <p class="text-[0.82rem] text-white/42">Médica Dermatologista</p>
+          <p class="text-[0.82rem] text-white/42">CRM-PR 34967 · RQE 26861</p>
+          <p class="text-[0.82rem] text-white/42">Especialista SBD – SBCD</p>
+        </div>
+      </div>
+
+      <!-- Col 2: Navegação -->
+      <div>
+        <h3 class="text-xs font-medium tracking-[0.2em] uppercase text-white/35 mb-6">Navegação</h3>
+        <ul class="space-y-4" role="list">
+          <li><a href="index.html"         class="footer-link text-sm">Início</a></li>
+          <li><a href="sobre.html"         class="footer-link text-sm">Sobre</a></li>
+          <li><a href="procedimentos.html" class="footer-link text-sm">Procedimentos</a></li>
+          <li><a href="contato.html"       class="footer-link text-sm">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Contato -->
+      <div>
+        <h3 class="text-xs font-medium tracking-[0.2em] uppercase text-white/35 mb-6">Contato</h3>
+        <ul class="space-y-5" role="list">
+          <li>
+            <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+               target="_blank" rel="noopener noreferrer"
+               class="footer-link inline-flex items-start gap-3 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded">
+              <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>(41) 99830-2323</span>
+            </a>
+          </li>
+          <li>
+            <div class="inline-flex items-start gap-3 text-sm text-white/45">
+              <svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#86A5A8;" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Segunda a sexta<br>09h – 18h</span>
+            </div>
+          </li>
+          <li>
+            <div class="inline-flex items-start gap-3 text-sm text-white/45">
+              <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color:#86A5A8;" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span class="leading-[1.7]">Clínica Tassi<br>Av. Visconde de Guarapuava, 4628<br>Sala 414 – DOC Batel<br>Curitiba – PR</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Social + CTA -->
+      <div>
+        <h3 class="text-xs font-medium tracking-[0.2em] uppercase text-white/35 mb-6">Redes sociais</h3>
+        <a href="https://instagram.com/dermato.anaopolski" target="_blank" rel="noopener noreferrer"
+           class="footer-link inline-flex items-center gap-3 text-sm group focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded">
+          <div class="w-9 h-9 rounded-full border border-white/15 group-hover:border-pewter/50 flex items-center justify-center flex-shrink-0 transition-colors duration-200">
+            <svg class="w-4 h-4" style="color:#86A5A8;" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          @dermato.anaopolski
+        </a>
+        <div class="mt-8 pt-8 border-t border-white/[0.07]">
+          <p class="text-[0.82rem] text-white/35 leading-relaxed mb-4">Agende sua consulta diretamente pelo WhatsApp.</p>
+          <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+             target="_blank" rel="noopener noreferrer"
+             class="btn-primary inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pewter focus-visible:ring-offset-jet">
+            <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar consulta
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="border-t border-white/[0.05]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-white/28 text-center sm:text-left">© 2026 Dra. Ana Cristina Opolski. Todos os direitos reservados.</p>
+      <p class="text-xs text-white/28 text-center sm:text-right">CRM-PR 34967 · RQE 26861 · Especialista SBD – SBCD</p>
+    </div>
+  </div>
+
+</footer>
+
+
+<!-- WhatsApp float -->
+<a id="wa-float"
+   href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+   target="_blank" rel="noopener noreferrer"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366]"
+   style="background-color:#25D366; box-shadow: 0 4px 20px rgba(37,211,102,0.38);"
+   aria-label="Contato via WhatsApp">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+
+<script>
+  /* Navbar scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
+  navbar.classList.toggle('scrolled', window.scrollY > 24);
+
+  /* Mobile menu */
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen   = document.getElementById('icon-open');
+  const iconClose  = document.getElementById('icon-close');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden', isOpen);
+    iconOpen.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeMobileMenu(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item   = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // Fecha todos
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-answer').classList.remove('open');
+        el.querySelector('[aria-expanded]').setAttribute('aria-expanded', 'false');
+      });
+
+      // Abre o clicado (se estava fechado)
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
