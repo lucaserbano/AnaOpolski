@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agende sua consulta com a Dra. Ana Opolski – Médica Dermatologista em Curitiba-PR. WhatsApp, endereço e como chegar à Clínica Tassi.">
+  <title>Contato | Dra. Ana Opolski – Dermatologista em Curitiba</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            linen:          '#F0E4D8',
+            'pale-copper':  '#D88366',
+            'deep-chestnut':'#B04F44',
+            pewter:         '#86A5A8',
+            jet:            '#3B3939',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* ── Navbar ── */
+    #navbar { transition: background-color 0.35s ease, box-shadow 0.35s ease; }
+    #navbar.scrolled {
+      background-color: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 1px 24px rgba(134,165,168,0.13);
+    }
+
+    /* ── Nav links ── */
+    .nav-link {
+      position: relative;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3B3939;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background-color: #86A5A8;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: #86A5A8; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #86A5A8; }
+    .nav-link.active::after { width: 100%; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      background-color: #86A5A8;
+      color: #ffffff;
+      transition: background-color 0.25s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover  { background-color: #6e8e91; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-outline {
+      border: 1px solid rgba(59,57,57,0.2);
+      color: #3B3939;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .btn-outline:hover  { border-color: #86A5A8; color: #86A5A8; transform: translateY(-1px); }
+    .btn-outline:active { transform: translateY(0); }
+
+    /* ── Entry animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up   { animation: fadeUp 0.75s ease both; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.35s; }
+
+    /* ── Scroll-triggered fade ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+    .reveal-delay-3 { transition-delay: 0.34s; }
+
+    /* ── WhatsApp float ── */
+    #wa-float { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    #wa-float:hover { transform: scale(1.09); box-shadow: 0 8px 28px rgba(37,211,102,0.38); }
+
+    /* ── Footer links ── */
+    .footer-link { color: rgba(255,255,255,0.55); transition: color 0.2s ease; }
+    .footer-link:hover { color: #86A5A8; }
+
+    /* ── Contact item hover ── */
+    .contact-item {
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .contact-item:hover {
+      background-color: rgba(134,165,168,0.06);
+      transform: translateX(4px);
+    }
+
+    /* ── Map ── */
+    .map-wrap iframe {
+      filter: grayscale(20%) contrast(0.95);
+      transition: filter 0.3s ease;
+    }
+    .map-wrap:hover iframe {
+      filter: grayscale(0%) contrast(1);
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-white text-jet">
+
+<!-- ════════════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90" role="navigation" aria-label="Navegação principal">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+    <div class="flex items-center justify-between" style="height:90px;">
+
+      <a href="index.html" class="flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded" aria-label="Dra. Ana Opolski – página inicial">
+        <img src="Assets/Logo principal/Logo 1 principal.png" alt="Ana Opolski Dermatologista" class="h-12 w-auto">
+      </a>
+
+      <div class="hidden md:flex items-center gap-9">
+        <a href="index.html"         class="nav-link">Início</a>
+        <a href="sobre.html"         class="nav-link">Sobre</a>
+        <a href="procedimentos.html" class="nav-link">Procedimentos</a>
+        <a href="contato.html"       class="nav-link active">Contato</a>
+      </div>
+
+      <div class="hidden md:block">
+        <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+           target="_blank" rel="noopener noreferrer"
+           class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pewter">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Entre em contato
+        </a>
+      </div>
+
+      <button id="menu-toggle" class="md:hidden p-2 rounded-md text-jet focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter"
+              aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-linen" role="menu">
+    <div class="max-w-7xl mx-auto px-5 py-6 flex flex-col gap-5">
+      <a href="index.html"         class="nav-link py-1" role="menuitem" onclick="closeMobileMenu()">Início</a>
+      <a href="sobre.html"         class="nav-link py-1" role="menuitem" onclick="closeMobileMenu()">Sobre</a>
+      <a href="procedimentos.html" class="nav-link py-1" role="menuitem" onclick="closeMobileMenu()">Procedimentos</a>
+      <a href="contato.html"       class="nav-link active py-1" role="menuitem" onclick="closeMobileMenu()">Contato</a>
+      <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+         target="_blank" rel="noopener noreferrer" role="menuitem"
+         class="btn-primary inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-medium tracking-wide mt-1"
+         onclick="closeMobileMenu()">
+        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Entre em contato
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════════════════════ -->
+<section class="relative flex items-end bg-jet overflow-hidden" style="padding-top:90px; min-height:52vh;" aria-label="Contato">
+
+  <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+    <img src="Assets/Monograma vazado/vazado pewter blue.png" alt=""
+         class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-[700px] max-w-none opacity-[0.07]" loading="eager">
+    <img src="Assets/Monograma/monograma compacto.png" alt=""
+         class="absolute left-0 bottom-0 -translate-x-1/4 translate-y-1/4 w-[420px] max-w-none opacity-[0.04]" loading="eager">
+  </div>
+
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+       style="background: linear-gradient(135deg, rgba(59,57,57,1) 0%, rgba(86,107,110,0.85) 100%);"></div>
+
+  <!-- Monogram half-drop pattern -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
+       style="
+         background-image: url('Assets/Monograma/logo white.png'), url('Assets/Monograma/logo white.png');
+         background-size: 200px 112px, 200px 112px;
+         background-position: 0px 0px, 100px 56px;
+         background-repeat: repeat, repeat;
+         opacity: 0.05;
+       "></div>
+
+  <div class="relative w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-14 pt-6">
+
+    <nav class="flex items-center gap-2 mb-8 fade-up" aria-label="Breadcrumb">
+      <a href="index.html" class="text-white/40 text-[0.82rem] tracking-[0.12em] uppercase hover:text-white/70 transition-colors duration-200">Início</a>
+      <span class="text-white/25 text-[0.82rem]">/</span>
+      <span class="text-pewter text-[0.82rem] tracking-[0.12em] uppercase">Contato</span>
+    </nav>
+
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 mb-6 fade-up delay-100">
+        <div class="h-px w-10 bg-pewter flex-shrink-0"></div>
+        <span class="text-pewter text-[0.75rem] sm:text-[0.85rem] font-medium tracking-[0.18em] uppercase">Clínica Tassi · Curitiba, PR</span>
+      </div>
+
+      <h1 class="font-display font-light leading-[1.08] tracking-tight text-white mb-6 fade-up delay-200"
+          style="font-size: clamp(2.8rem, 5.5vw, 4.8rem);">
+        Entre em <em class="not-italic" style="color:#86A5A8;">Contato</em>
+      </h1>
+
+      <p class="text-white/55 text-[1.1rem] leading-[1.8] font-light max-w-xl fade-up delay-300">
+        Agende sua consulta de forma rápida e simples pelo WhatsApp. Nossa equipe retornará com os horários disponíveis.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     CONTATO PRINCIPAL
+════════════════════════════════════════════════════ -->
+<section class="bg-white py-24 lg:py-36" aria-label="Informações de contato">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+      <!-- Coluna de informações -->
+      <div class="reveal">
+
+        <div class="flex items-center gap-3 mb-8">
+          <div class="h-px w-10 bg-pewter flex-shrink-0"></div>
+          <span class="text-pewter text-[0.78rem] font-medium tracking-[0.18em] uppercase">Fale conosco</span>
+        </div>
+
+        <h2 class="font-display font-light text-jet leading-tight mb-10"
+            style="font-size: clamp(2rem, 3.5vw, 3rem);">
+          Pronta para<br>cuidar de <em class="not-italic text-pewter">você</em>
+        </h2>
+
+        <!-- Itens de contato -->
+        <div class="space-y-3 mb-10">
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+             target="_blank" rel="noopener noreferrer"
+             class="contact-item flex items-center gap-5 p-4 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background-color:#25D366;">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <p class="text-[0.75rem] font-medium tracking-[0.14em] uppercase text-jet/40 mb-0.5">WhatsApp</p>
+              <p class="text-jet font-medium text-[1.05rem]">(41) 99830-2323</p>
+            </div>
+            <svg class="w-4 h-4 text-jet/25 ml-auto flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+
+          <!-- Horário -->
+          <div class="contact-item flex items-center gap-5 p-4 rounded-xl">
+            <div class="w-12 h-12 rounded-xl bg-pewter/10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-pewter" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <p class="text-[0.75rem] font-medium tracking-[0.14em] uppercase text-jet/40 mb-0.5">Horário de atendimento</p>
+              <p class="text-jet font-medium text-[1.05rem]">Segunda a sexta · 09h – 18h</p>
+            </div>
+          </div>
+
+          <!-- Endereço -->
+          <a href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica+Tassi+Av+Visconde+de+Guarapuava+4628+Curitiba+PR"
+             target="_blank" rel="noopener noreferrer"
+             class="contact-item flex items-start gap-5 p-4 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter">
+            <div class="w-12 h-12 rounded-xl bg-pewter/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-5 h-5 text-pewter" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <p class="text-[0.75rem] font-medium tracking-[0.14em] uppercase text-jet/40 mb-0.5">Endereço</p>
+              <p class="text-jet font-medium text-[1.05rem] leading-[1.6]">Clínica Tassi<br>
+                <span class="text-jet/65 font-normal text-[0.97rem]">Av. Visconde de Guarapuava, 4628<br>Sala 414 – DOC Batel · Curitiba-PR</span>
+              </p>
+            </div>
+            <svg class="w-4 h-4 text-jet/25 ml-auto flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://instagram.com/dermato.anaopolski"
+             target="_blank" rel="noopener noreferrer"
+             class="contact-item flex items-center gap-5 p-4 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter">
+            <div class="w-12 h-12 rounded-xl bg-pewter/10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-pewter" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <div>
+              <p class="text-[0.75rem] font-medium tracking-[0.14em] uppercase text-jet/40 mb-0.5">Instagram</p>
+              <p class="text-jet font-medium text-[1.05rem]">@dermato.anaopolski</p>
+            </div>
+            <svg class="w-4 h-4 text-jet/25 ml-auto flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+
+        </div>
+
+        <!-- CTA principal -->
+        <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+           target="_blank" rel="noopener noreferrer"
+           class="btn-primary inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-[0.95rem] font-medium tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter focus-visible:ring-offset-2">
+          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agende pelo WhatsApp
+        </a>
+
+      </div>
+
+      <!-- Foto -->
+      <div class="relative reveal reveal-delay-2">
+        <div class="absolute -inset-4 bg-linen rounded-[2rem] -z-10" aria-hidden="true"></div>
+        <div class="rounded-[1.5rem] overflow-hidden shadow-[0_16px_60px_rgba(59,57,57,0.10)]" style="aspect-ratio: 4/5;">
+          <img src="Assets/Fotos - AO/Consultório/AOabril25-12.jpg"
+               alt="Dra. Ana Opolski"
+               class="w-full h-full object-cover object-center" loading="lazy">
+        </div>
+        <!-- Badge horário -->
+        <div class="absolute -bottom-5 -right-3 sm:-right-5 bg-white rounded-xl px-4 py-3.5 shadow-[0_8px_32px_rgba(134,165,168,0.18)]">
+          <p class="text-[0.72rem] text-jet/40 tracking-[0.1em] uppercase mb-1">Atendimento</p>
+          <p class="text-[0.9rem] font-medium text-jet leading-tight">Seg. a sexta<br>09h – 18h</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     MAPA
+════════════════════════════════════════════════════ -->
+<section class="py-24 lg:py-32 -mt-8 lg:-mt-12 rounded-t-[3rem] lg:rounded-t-[4.5rem] relative overflow-hidden" style="background-color:#F8F2EC;" aria-label="Como chegar">
+
+  <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+    <img src="Assets/Monograma/logo pewter blue.png" alt=""
+         class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-[950px] max-w-none opacity-[0.12]" loading="lazy">
+  </div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative">
+
+    <!-- Cabeçalho -->
+    <div class="mb-12 reveal">
+      <p class="text-[0.78rem] font-medium tracking-[0.22em] uppercase text-pewter mb-4">Localização</p>
+      <h2 class="font-display font-light text-jet leading-tight mb-4"
+          style="font-size: clamp(2rem, 3.5vw, 3rem);">
+        Como chegar
+      </h2>
+      <p class="text-jet/55 text-[1.02rem] leading-[1.8] font-light max-w-xl">
+        Estamos na Clínica Tassi, no coração do Batel — um dos endereços mais acessíveis de Curitiba.
+      </p>
+    </div>
+
+    <!-- Mapa -->
+    <div class="map-wrap rounded-2xl overflow-hidden reveal reveal-delay-1"
+         style="box-shadow: 0 8px 40px rgba(59,57,57,0.12);">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.0817523456!2d-49.28627!3d-25.44278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4a1264d68d5%3A0x5d7b1e67d0d1d0e0!2sAv.%20Visconde%20de%20Guarapuava%2C%204628%20-%20Batel%2C%20Curitiba%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr"
+        width="100%"
+        height="450"
+        style="border:0; display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização da Clínica Tassi – Av. Visconde de Guarapuava, 4628, Curitiba"
+        aria-label="Mapa interativo – Clínica Tassi, Batel, Curitiba">
+      </iframe>
+    </div>
+
+    <!-- Informações abaixo do mapa -->
+    <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 reveal reveal-delay-2">
+      <div>
+        <p class="text-jet font-medium text-[0.95rem] mb-1">Clínica Tassi · DOC Batel</p>
+        <p class="text-jet/55 text-[0.92rem] leading-[1.7]">Av. Visconde de Guarapuava, 4628, Sala 414<br>Batel · Curitiba – PR</p>
+      </div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica+Tassi+Av+Visconde+de+Guarapuava+4628+Curitiba+PR"
+         target="_blank" rel="noopener noreferrer"
+         class="btn-outline inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[0.9rem] font-medium tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter focus-visible:ring-offset-2 flex-shrink-0">
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        Abrir no Google Maps
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer class="bg-jet text-white" role="contentinfo">
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-16 pb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <div>
+        <img src="Assets/Logo principal/Logo 1 principal.png" alt="Ana Opolski Dermatologista"
+             class="w-full max-w-[220px] h-auto block mb-7 brightness-0 invert" loading="lazy">
+        <p class="text-[1rem] text-white leading-[1.8] font-light mb-7 max-w-xs">
+          Realce sua beleza com naturalidade.
+        </p>
+        <div class="space-y-2">
+          <p class="text-[0.95rem] text-white/70 font-medium">Dra. Ana Cristina Opolski</p>
+          <p class="text-[0.9rem] text-white/42">Médica Dermatologista</p>
+          <p class="text-[0.9rem] text-white/42">CRM-PR 34967 · RQE 26861</p>
+          <p class="text-[0.9rem] text-white/42">Especialista SBD – SBCD</p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-medium tracking-[0.2em] uppercase text-white/35 mb-6">Navegação</h3>
+        <ul class="space-y-4" role="list">
+          <li><a href="index.html"         class="footer-link text-[0.95rem]">Início</a></li>
+          <li><a href="sobre.html"         class="footer-link text-[0.95rem]">Sobre</a></li>
+          <li><a href="procedimentos.html" class="footer-link text-[0.95rem]">Procedimentos</a></li>
+          <li><a href="contato.html"       class="footer-link text-[0.95rem]" style="color:#86A5A8;">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-medium tracking-[0.2em] uppercase text-white/35 mb-6">Contato</h3>
+        <ul class="space-y-5" role="list">
+          <li>
+            <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+               target="_blank" rel="noopener noreferrer"
+               class="footer-link inline-flex items-start gap-3 text-[0.95rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded">
+              <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>(41) 99830-2323</span>
+            </a>
+          </li>
+          <li>
+            <div class="inline-flex items-start gap-3 text-[0.95rem] text-white/45">
+              <svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#86A5A8;" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Segunda a sexta<br>09h – 18h</span>
+            </div>
+          </li>
+          <li>
+            <div class="inline-flex items-start gap-3 text-[0.95rem] text-white/45">
+              <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color:#86A5A8;" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span class="leading-[1.7]">Clínica Tassi<br>Av. Visconde de Guarapuava, 4628<br>Sala 414 – DOC Batel<br>Curitiba – PR</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-medium tracking-[0.2em] uppercase text-white/35 mb-6">Redes sociais</h3>
+        <a href="https://instagram.com/dermato.anaopolski" target="_blank" rel="noopener noreferrer"
+           class="footer-link inline-flex items-center gap-3 text-[0.95rem] group focus:outline-none focus-visible:ring-2 focus-visible:ring-pewter rounded">
+          <div class="w-9 h-9 rounded-full border border-white/15 group-hover:border-pewter/50 flex items-center justify-center flex-shrink-0 transition-colors duration-200">
+            <svg class="w-4 h-4" style="color:#86A5A8;" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          @dermato.anaopolski
+        </a>
+        <div class="mt-8 pt-8 border-t border-white/[0.07]">
+          <p class="text-[0.9rem] text-white/35 leading-relaxed mb-4">Agende sua consulta diretamente pelo WhatsApp.</p>
+          <a href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+             target="_blank" rel="noopener noreferrer"
+             class="btn-primary inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pewter focus-visible:ring-offset-jet">
+            <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agende sua consulta
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="border-t border-white/[0.05]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-white/28 text-center sm:text-left">© 2026 Dra. Ana Cristina Opolski. Todos os direitos reservados.</p>
+      <p class="text-xs text-white/28 text-center sm:text-right">CRM-PR 34967 · RQE 26861 · Especialista SBD – SBCD</p>
+    </div>
+  </div>
+
+</footer>
+
+
+<!-- WhatsApp float -->
+<a id="wa-float"
+   href="https://wa.me/5541998302323?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Ana%20Opolski.%20Gostaria%20de%20agendar%20uma%20consulta."
+   target="_blank" rel="noopener noreferrer"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366]"
+   style="background-color:#25D366; box-shadow: 0 4px 20px rgba(37,211,102,0.38);"
+   aria-label="Contato via WhatsApp">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+
+<script>
+  /* Navbar scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
+  navbar.classList.toggle('scrolled', window.scrollY > 24);
+
+  /* Mobile menu */
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen   = document.getElementById('icon-open');
+  const iconClose  = document.getElementById('icon-close');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden', isOpen);
+    iconOpen.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeMobileMenu(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+
+  /* Scroll reveal */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
